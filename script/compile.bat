@@ -19,6 +19,9 @@ echo Please set GRAALVM_HOME
 exit /b
 )
 
+
+set PATH=%USERPROFILE%\deps.clj;%PATH%
+
 call deps -e "(compile 'puget-cli.main)"
 deps -Spath > .classpath
 set /P PUGET_CLASSPATH=<.classpath
