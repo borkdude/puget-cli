@@ -47,6 +47,7 @@ build_script:
 
     powershell -Command "iwr -useb https://raw.githubusercontent.com/borkdude/deps.clj/master/install.ps1 | iex"
 
+- cmd: >-
     call script/compile.bat
 
 artifacts:
