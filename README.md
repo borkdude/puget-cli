@@ -16,14 +16,14 @@ Pipe EDN to stdin. Provide options to `puget.printer/pprint` using `--opts`.
 
 E.g.:
 
-```
+``` shell
 $ echo '[1 2 3]' | puget
 ```
 
 This will invoke `puget.printer/pprint`. By default it uses colorized output which you can disable with:
 
 
-```
+``` shell
 $ echo '[1 2 3]' | puget --opts '{:print-color false}'
 ```
 
