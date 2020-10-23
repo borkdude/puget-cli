@@ -26,7 +26,7 @@ set /P PUGET_CLASSPATH=<.classpath
 call %GRAALVM_HOME%\bin\gu.cmd install native-image
 
 call %GRAALVM_HOME%\bin\native-image.cmd ^
-  "-cp" "%PUGET_CLASSPATH%:classes" ^
+  "-cp" "%PUGET_CLASSPATH%;classes" ^
   "-H:Name=puget" ^
   "-H:+ReportExceptionStackTraces" ^
   "--initialize-at-build-time" ^
