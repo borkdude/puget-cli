@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+rm -rf /tmp/release
+mkdir -p /tmp/release
+cp puget /tmp/release
+VERSION=$(cat resources/PUGET_CLI_VERSION)
+
+cd /tmp/release
+
+## release binary as zip archive
+
+zip "puget-cli-$VERSION-$PUGET_PLATFORM-amd64.zip" puget
+
+## cleanup
+
+rm puget

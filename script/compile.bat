@@ -12,7 +12,7 @@ set JAVA_HOME=%GRAALVM_HOME%
 set PATH=%GRAALVM_HOME%\bin;%PATH%
 
 set /P PUGET_CLI_VERSION=< resources\PUGET_CLI_VERSION
-echo Building Babashka %PUGET_CLI_VERSION%
+echo Building puget-cli %PUGET_CLI_VERSION%
 
 if "%GRAALVM_HOME%"=="" (
 echo Please set GRAALVM_HOME
