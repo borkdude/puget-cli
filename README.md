@@ -5,6 +5,16 @@ The `puget` CLI can be used to pprint EDN values with colors. It is based on the
 
 ## Installation
 
+### Brew (linux and macOS)
+
+     brew install borkdude/brew/puget
+
+### Scoop (Windows)
+
+See [scoop-clojure](https://github.com/littleli/scoop-clojure).
+
+### Manual
+
 Grab the binary for your OS at [Github releases](https://github.com/borkdude/puget-cli/releases).
 
 ## Usage
