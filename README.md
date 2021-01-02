@@ -1,6 +1,7 @@
 # Puget CLI
 
-The `puget` CLI can be used to pprint EDN values with colors.
+The `puget` CLI can be used to pprint EDN values with colors. It is based on the
+[puget](https://github.com/greglook/puget) library.
 
 ## Installation
 
