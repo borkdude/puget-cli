@@ -8,7 +8,7 @@ if [ -z "$GRAALVM_HOME" ]; then
 fi
 
 mkdir -p classes
-clojure -e "(compile 'puget-cli.main)"
+clojure -J-Dclojure.compiler.direct-linking=true -e "(compile 'puget-cli.main)"
 
 "$GRAALVM_HOME/bin/gu" install native-image
 

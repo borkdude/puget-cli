@@ -22,7 +22,7 @@ exit /b
 set PATH=%USERPROFILE%\deps.clj;%PATH%
 
 if not exist "classes" mkdir classes
-call deps -e "(compile 'puget-cli.main)"
+call deps -J-Dclojure.compiler.direct-linking=true -e "(compile 'puget-cli.main)"
 deps -Spath > .classpath
 set /P PUGET_CLASSPATH=<.classpath
 
