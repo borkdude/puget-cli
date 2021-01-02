@@ -2,7 +2,8 @@
   (:gen-class)
   (:require [clojure.edn :as edn]
             [clojure.string :as str]
-            [puget.printer :as puget]))
+            [puget.printer :as puget])
+  (:import [java.io PushbackReader]))
 
 (def default-opts
   {:print-color true})
@@ -24,8 +25,15 @@
                    first
                    edn/read-string)}))
 
+(defn in-seq
+  [reader]
+  (lazy-seq
+    (if-let [obj (edn/read {:eof nil} reader)]
+      (cons obj (in-seq reader))
+      (.close ^PushbackReader reader))))
+
 (defn -main [& args]
   (let [arg-opts (parse-args args)
         opts (:opts arg-opts)
         opts (merge default-opts opts)]
-    (puget/pprint (edn/read-string (slurp *in*)) opts)))
+    (run! #(puget/pprint % opts) (in-seq (PushbackReader. *in*)))))
