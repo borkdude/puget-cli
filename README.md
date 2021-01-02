@@ -5,11 +5,7 @@ The `puget` CLI can be used to pprint EDN values with colors. It is based on the
 
 ## Installation
 
-Currently you can grab pre-built binaries for Linux and macOS from
-[CircleCI](https://app.circleci.com/pipelines/github/borkdude/puget-cli?branch=main)
-and for Windows from
-[Appveyor](https://ci.appveyor.com/project/borkdude/puget-cli). Navigate to the
-artifact tab and download the zip.
+Grab the binary for your OS at [Github releases](https://github.com/borkdude/puget-cli/releases).
 
 ## Usage
 
