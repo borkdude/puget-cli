@@ -25,15 +25,15 @@
                    first
                    edn/read-string)}))
 
-(defn in-seq
-  [reader]
-  (lazy-seq
-    (if-let [obj (edn/read {:eof nil} reader)]
-      (cons obj (in-seq reader))
-      (.close ^PushbackReader reader))))
+(defn read-and-print
+  [reader opts]
+  (with-open [r (PushbackReader. reader)]
+    (->> (repeatedly #(edn/read {:eof ::eof} r))
+         (take-while #(not= % ::eof))
+         (run! #(puget/pprint % opts)))))
 
 (defn -main [& args]
   (let [arg-opts (parse-args args)
         opts (:opts arg-opts)
         opts (merge default-opts opts)]
-    (run! #(puget/pprint % opts) (in-seq (PushbackReader. *in*)))))
+    (read-and-print *in* opts)))
