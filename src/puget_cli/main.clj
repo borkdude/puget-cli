@@ -28,7 +28,8 @@
 (defn read-and-print
   [reader opts]
   (with-open [r (PushbackReader. reader)]
-    (->> (repeatedly #(edn/read {:eof ::eof} r))
+    (->> (repeatedly #(edn/read {:eof     ::eof
+                                 :default tagged-literal} r))
          (take-while #(not= % ::eof))
          (run! #(puget/pprint % opts)))))
 
